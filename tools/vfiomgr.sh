@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Get this script's directory
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 echo "Copying configuration file..."
 cp ./vfio.conf /etc/modprobe.d/
 echo "Rebuilding system images..."
 INITRAM=/etc/initramfs-tools/modules
 if [ -f "$INITRAM" ]; then
-    update-initramfs -u
+    update-initramfs -u -k all
 fi
 MKINIT=/etc/mkinitcpio.conf
 if [ -f "$MKINIT" ]; then

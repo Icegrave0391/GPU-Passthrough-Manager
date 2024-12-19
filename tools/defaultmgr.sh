@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get this script's directory
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 echo "Removing configuration file..."
 rm /etc/modprobe.d/vfio.conf
