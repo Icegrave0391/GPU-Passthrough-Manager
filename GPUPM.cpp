@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
 int checkIfFileExists(const char *filename);
     if (geteuid() == 0) {
         if( access("./data.json", F_OK ) != -1){
-            system("python ./py/load.py");
+            system("python3 ./py/load.py");
             //initiate gtk widgets
             GtkWidget *window, *grid, *para, *default1, *vfio, *vbox, *label, *text, *settingsMan;
             GdkPixbuf *pixbuf;
