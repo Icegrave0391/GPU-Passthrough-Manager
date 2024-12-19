@@ -8,7 +8,7 @@ rm /etc/modprobe.d/vfio.conf
 echo "Rebuilding system images..."
 INITRAM=/etc/initramfs-tools/modules
 if [ -f "$INITRAM" ]; then
-    update-initramfs -u
+    update-initramfs -u -k all
 fi
 MKINIT=/etc/mkinitcpio.conf
 if [ -f "$MKINIT" ]; then

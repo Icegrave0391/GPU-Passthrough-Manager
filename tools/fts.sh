@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Get this script's directory
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 i=0
 #Add IOMMU to GRUB conf, then make the config.
@@ -150,8 +151,8 @@ if [ -f "$INITRAM" ]; then
 		x=1
 	fi
 	if [ $x -gt 0 ]; then
-		echo "updating initramfs"
-		update-initramfs -u
+		echo "updating initramfs (for all kernels)"
+		update-initramfs -u -k all
 	else
 		echo "initramfs already configured"
 	fi
